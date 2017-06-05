@@ -4,7 +4,7 @@ LICENSE="https://letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf"
 CHALLENGETYPE="http-01"
 BASEDIR="/etc/ssl/mail"
 WELLKNOWN="/var/www/mail/.well-known/acme-challenge"
-KEYSIZE="2048"
+KEYSIZE="4096"
 RENEW_DAYS="30"
 CONTACT_EMAIL="MAILCOW_LE_MAIL"
 # Better when using TLSA Records, be sure to use 3 1 1
