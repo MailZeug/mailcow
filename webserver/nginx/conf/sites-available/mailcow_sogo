@@ -24,8 +24,8 @@ server {
 	root /var/www/mail/autoconfig;
 }
 server {
-	listen 443;
-	listen [::]:443;
+	listen 443 http2;
+	listen [::]:443 http2;
 	server_name autodiscover.MAILCOW_DOMAIN;
 	server_tokens off;
 	ssl on;
@@ -46,7 +46,7 @@ server {
 	ssl_stapling_verify on;
 	resolver 127.0.0.1 [::1] valid=300s;
 	resolver_timeout 10s;
-	
+
 	root /var/www/mail;
 	location ~ \.php$ {
 		include fastcgi_params;

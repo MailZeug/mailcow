@@ -25,8 +25,8 @@ server {
 	root /var/www/mail/autoconfig;
 }
 server {
-	listen 443;
-	listen [::]:443;
+	listen 443 http2;
+	listen [::]:443 http2;
 	server_name MAILCOW_HOST.MAILCOW_DOMAIN;
 	server_tokens off;
 	ssl on;
