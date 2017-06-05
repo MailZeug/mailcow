@@ -31,15 +31,20 @@ smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
 smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
 
 # Disallow SSLv2 and SSLv3, only accept secure ciphers
+smtpd_tls_eecdh_grade = strong
+smtpd_tls_exclude_ciphers = ECDHE-RSA-RC4-SHA, RC4, aNULL
+smtpd_tls_loglevel = 1
+smtp_tls_mandatory_protocols = !SSLv2, !SSLv3
+smtp_tls_protocols = !SSLv2, !SSLv3
+lmtp_tls_mandatory_protocols = !SSLv2, !SSLv3
+lmtp_tls_protocols = !SSLv2, !SSLv3
 smtpd_tls_mandatory_protocols = !SSLv2, !SSLv3
 smtpd_tls_protocols = !SSLv2, !SSLv3
-smtpd_tls_mandatory_ciphers=high
-smtpd_tls_exclude_ciphers = ECDHE-RSA-RC4-SHA, RC4, aNULL
-smtpd_tls_mandatory_exclude_ciphers = ECDHE-RSA-RC4-SHA, RC4, aNULL
+smtpd_tls_mandatory_ciphers = high
+smtpd_tls_security_level = may
+tls_ssl_options = NO_COMPRESSION
+tls_high_cipherlist = EDH+CAMELLIA:EDH+aRSA:EECDH+aRSA+AESGCM:EECDH+aRSA+SHA256:EECDH:+CAMELLIA128:+AES128:+SSLv3:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!IDEA:!ECDSA:kEDH:CAMELLIA128-SHA:AES128-SHA
 
-# Log TLS handling
-smtpd_tls_loglevel = 1
-smtp_tls_loglevel = 1
 
 # Delay reject until RCPT TO
 smtpd_delay_reject = yes
